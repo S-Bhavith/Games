@@ -106,6 +106,18 @@ body{
     background-color: green;
 }
 
-@media (max-width:720px){
-    
+#winner-card{
+    position: absolute;
+    height:95vmin;
+    width:85vmin;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius:5vmin;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:black;
+    font-size:6vmin;
+    font-weight:bold;
 }
