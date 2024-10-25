@@ -50,10 +50,11 @@ body{
 }
 
 #game{
-    flex-grow:5;
+    flex-grow:6;
     display: grid;
     grid-template-columns:repeat(3,1fr);
-    height:30vmin;
+    height:75vmin;
+    max-height:600px;
     aspect-ratio: 1/1;
     gap:.5rem;
 }
@@ -103,4 +104,8 @@ body{
 .O::after{
     height:6vmin;
     background-color: green;
+}
+
+@media (max-width:720px){
+    
 }
