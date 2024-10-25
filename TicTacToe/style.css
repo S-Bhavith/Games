@@ -1,67 +1,106 @@
 *{
     padding:0;
     margin:0;
-    font-family:sans-serif, monospace;
+    font-family:sans-serif;
     box-sizing:border-box;
 }
 
-body{
-    height:100dvh;
-    background-color:black;
-    color:white;
+body, #container, .X, .O{
     display:flex;
     align-items:center;
     justify-content: center;
 }
 
+body{
+    background-color:black;
+    height:100dvh;
+    color:white;
+}
+
 #container{
-    border-radius:2.5rem;
-    height:80dvmin;
-    min-height:fit-content;
-    aspect-ratio: 1/1;
     background-color:rgba(255, 255, 255, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+    padding:1rem;
+    width:85vmin;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+    flex-direction:column;
 }
 
 #logo{
-    font-size:xx-large;
-}
-
-#mode{
-    background-color: aqua;
-    height:50%;
-    width:80%;
-    border-radius:1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-button{
-    padding:2.5vmin;
-    font-size:larger;
+    flex-grow:1;
+    font-size:6vmin;
     font-weight:bold;
+    text-shadow: 0px 0px 10px white;
 }
 
-@media screen and (max-width:540px) {
-    #mode{
-        flex-direction: column;
-    }
+#player{
+    margin:1rem;
+    font-size:3vmin;
+    font-weight: bold;
+    border:none;
+    padding:2vmin;
+    border-radius:3vmin;
+    background-color: transparent;
+    color:white;
+    transition: background-color 250ms linear;
+}
 
-    button{
-        padding:2vmin;
-    }
+#player:hover,#player:focus{
+    background-color: orange;
 }
 
 #game{
+    flex-grow:5;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
+    height:30vmin;
+    aspect-ratio: 1/1;
     gap:.5rem;
 }
 
 .box{
-    padding:10vmin;
+    border:none;
+    border-radius:.5rem;
+    position: relative;
+}
+
+.X{
+    background-color: blue;
+}
+
+.X::after,.X::before{
+    position: absolute;
+    content:'';
+    height:2vmin;
+    width:10.5vmin;
+    background-color:yellow;
+}
+
+.X::after{
+    rotate:45deg;
+}
+
+.X::before{
+    rotate:-45deg;
+}
+
+.O{
+    background-color: green;
+}
+
+.O::after, .O::before{
+    position: absolute;
+    content:'';
+    border-radius:50%;
+    aspect-ratio: 1/1;
+}
+
+.O::before{
+    height:10vmin;
+    background-color:yellow;
+}
+
+.O::after{
+    height:6vmin;
+    background-color: green;
 }
