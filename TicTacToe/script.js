@@ -48,7 +48,7 @@ function checkWinner(){
         ||
         boxs[winingPattern[7][0]].classList.contains('X') && boxs[winingPattern[7][1]].classList.contains('X') && boxs[winingPattern[7][2]].classList.contains('X')
     ){
-        console.log("X Won!");
+        alert("X Won!");
         return true;
     } else if(
         boxs[winingPattern[0][0]].classList.contains('O') && boxs[winingPattern[0][1]].classList.contains('O') && boxs[winingPattern[0][2]].classList.contains('O')
@@ -67,7 +67,7 @@ function checkWinner(){
         ||
         boxs[winingPattern[7][0]].classList.contains('O') && boxs[winingPattern[7][1]].classList.contains('O') && boxs[winingPattern[7][2]].classList.contains('O')
     ){
-        console.log("O Won!");
+        alert("O Won!");
         return true;
     }
     else{
@@ -94,11 +94,15 @@ boxs.forEach(box=>{
             let returnValue =  checkWinner();
             
             if(availableBox.length == 0 && !returnValue){
-                console.log("It's an Tie")
+                alert("It's an Tie")
+                returnValue = true;
             }
 
             if(returnValue){
-                window.location.reload();
+                setTimeout(()=>{
+                    window.location.reload();
+                }
+                ,1000)
             }
         }
     })
