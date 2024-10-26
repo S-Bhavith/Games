@@ -21,7 +21,7 @@ function displayWinner(wonPlayer){
     winner.style.display = "flex";
     if(wonPlayer != "None"){
         winner.innerText = winner.innerText + `"${wonPlayer}"`;
-    } else{
+    } else if(wonPlayer == "None"){
         winner.style.paddingTop = "2.5rem";
         winner.innerText = "It's a Tie";
     }
