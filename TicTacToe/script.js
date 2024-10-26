@@ -19,9 +19,9 @@ let resetButton = document.getElementById('reset');
 function displayWinner(wonPlayer){
     winnerCard.style.display = "flex";
     winner.style.display = "flex";
-    if(wonPlayer != "None"){
-        winner.innerText = winner.innerText + `"${wonPlayer}"`;
-    } else if(wonPlayer == "None"){
+    winner.innerHTML = `Congratulations Player <br> "${wonPlayer}"`;
+    console.log(winner, wonPlayer);
+    if(wonPlayer == "None"){
         winner.style.paddingTop = "2.5rem";
         winner.innerText = "It's a Tie";
     }
