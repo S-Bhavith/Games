@@ -12,6 +12,21 @@ let winingPattern = [
     [1,4,7],
     [2,5,8]
 ];
+let winnerCard = document.getElementById('winner-card');
+let winner = document.getElementById('winner');
+let resetButton = document.getElementById('reset');
+
+function displayWinner(wonPlayer){
+    winnerCard.style.display = "flex";
+    winner.style.display = "flex";
+    if(wonPlayer != "None"){
+        winner.innerText = winner.innerText + `"${wonPlayer}"`;
+    } else{
+        winner.style.paddingTop = "2.5rem";
+        winner.innerText = "It's a Tie";
+    }
+    resetButton.style.display = "flex";
+}
 
 let mode  = document.getElementById('player');
 mode.onclick = () => {
@@ -48,7 +63,7 @@ function checkWinner(){
         ||
         boxs[winingPattern[7][0]].classList.contains('X') && boxs[winingPattern[7][1]].classList.contains('X') && boxs[winingPattern[7][2]].classList.contains('X')
     ){
-        alert("X Won!");
+        displayWinner("X");
         return true;
     } else if(
         boxs[winingPattern[0][0]].classList.contains('O') && boxs[winingPattern[0][1]].classList.contains('O') && boxs[winingPattern[0][2]].classList.contains('O')
@@ -67,7 +82,7 @@ function checkWinner(){
         ||
         boxs[winingPattern[7][0]].classList.contains('O') && boxs[winingPattern[7][1]].classList.contains('O') && boxs[winingPattern[7][2]].classList.contains('O')
     ){
-        alert("O Won!");
+        displayWinner("O");
         return true;
     }
     else{
@@ -86,7 +101,7 @@ boxs.forEach(box=>{
             
             // Automate
             if(mode.innerText == "Single Player"){
-                if(player == "O" && availableBox.length != 0){
+                if(player == "O" && availableBox.length != 0 && checkWinner() != true){
                     randomBoxSelector();
                 }
             }
@@ -94,15 +109,7 @@ boxs.forEach(box=>{
             let returnValue =  checkWinner();
             
             if(availableBox.length == 0 && !returnValue){
-                alert("It's an Tie")
-                returnValue = true;
-            }
-
-            if(returnValue){
-                setTimeout(()=>{
-                    window.location.reload();
-                }
-                ,1000)
+                displayWinner("None");
             }
         }
     })
