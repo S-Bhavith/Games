@@ -33,6 +33,7 @@ body{
 }
 
 input{
+    cursor:pointer;
     height:10vmin;
     width: 10vmin;
     font-size:5vmin;
