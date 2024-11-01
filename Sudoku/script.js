@@ -1,5 +1,6 @@
 const container = document.getElementById('container');
 const subContainers = [];
+const emptyCells = []; // Array to store removed cell information
 
 // Initialize 3x3 sub-containers
 for (let i = 0; i < 9; i++) {
@@ -41,41 +42,65 @@ function isValid(row, col, num) {
 
 // Backtracking function to fill the board
 function fillBoard(row, col) {
-    if (row === 9) return true; // Completed all rows
-    if (col === 9) return fillBoard(row + 1, 0); // Move to the next row
+    if (row === 9) return true;
+    if (col === 9) return fillBoard(row + 1, 0);
 
-    // Shuffle numbers 1-9 to create randomness
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9].sort(() => Math.random() - 0.5);
     
     for (let num of numbers) {
         if (isValid(row, col, num)) {
             rows[row][col].value = num;
             if (fillBoard(row, col + 1)) return true;
-            rows[row][col].value = ''; // Undo placement if it leads to a dead end
+            rows[row][col].value = '';
         }
     }
-    return false; // Trigger backtracking
+    return false;
 }
 
-// Function to remove cells to create a puzzle
+// Function to remove cells to create a puzzle and store empty cells
 function removeCells(numCellsToRemove) {
+    emptyCells.length = 0; // Clear any previous entries
     let cellsRemoved = 0;
     while (cellsRemoved < numCellsToRemove) {
         const row = Math.floor(Math.random() * 9);
         const col = Math.floor(Math.random() * 9);
 
-        if (rows[row][col].value !== '') { // Check if the cell is filled
-            rows[row][col].value = ''; // Remove the number to make it a puzzle
-            rows[row][col].placeholder = ''; // Optional: clear placeholder if used
+        if (rows[row][col].value !== '') {
+            emptyCells.push({
+                row: row,
+                col: col,
+                correctValue: rows[row][col].value
+            });
+            rows[row][col].value = '';
+            rows[row][col].placeholder = '';
             cellsRemoved++;
         }
     }
 }
 
+// Check if all entries in empty cells are correct
+function checkWin() {
+    for (const cell of emptyCells) {
+        const playerValue = rows[cell.row][cell.col].value;
+        if (playerValue != cell.correctValue) return false;
+    }
+    return true;
+}
+
 // Generate a new randomized game
-function generateSudoku(numCellsToRemove = 5) { // Adjust `numCellsToRemove` as needed
+function generateSudoku(numCellsToRemove = 3) {
     fillBoard(0, 0); // Step 1: Fill the board completely
     removeCells(numCellsToRemove); // Step 2: Remove cells for the puzzle
+
+    // Add event listeners for win checking on user input
+    emptyCells.forEach(cell => {
+        const input = rows[cell.row][cell.col];
+        input.addEventListener('input', () => {
+            if (checkWin()) {
+                alert("Congratulations! You've solved the puzzle!");
+            }
+        });
+    });
 }
 
 // Run the generation function when the page loads or refreshes
