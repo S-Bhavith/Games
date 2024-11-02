@@ -15,6 +15,31 @@ body{
     height:100dvh;
 }
 
+#cover{
+    transition: all .25s linear;
+    position:absolute;
+    display:grid;
+    place-items:center;
+    border-radius:2.5vmin;
+    margin:5vmin;
+}
+
+.cover{
+    height:95vh;
+    width:95vw;
+    background-color: rgba(255, 255, 255, .5);
+    text-shadow: 0px 0px 25px green;
+    color:black;
+    font-weight:bolder;
+    font-size:10em;
+}
+
+.cover-fade-off{
+    background-color: rgba(255, 255, 255, .0);
+    font-size: 0;
+    color:transparent;
+}
+
 #container{
     border:1px solid white;
     height:91vmin;

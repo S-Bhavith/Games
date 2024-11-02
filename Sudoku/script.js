@@ -2,6 +2,17 @@ const container = document.getElementById('container');
 const subContainers = [];
 const emptyCells = []; // Array to store removed cell information
 
+document.addEventListener('DOMContentLoaded',()=>{
+    setTimeout(()=>{
+        Array.from(document.getElementsByClassName('cover'))[0].classList.add('cover-fade-off');
+        Array.from(document.getElementsByClassName('cover'))[0].classList.remove('cover');
+    },2000)
+    setTimeout(()=>{
+        document.body.removeChild(document.getElementById('cover'))
+    }
+    ,2500)
+})
+
 // Initialize 3x3 sub-containers
 for (let i = 0; i < 9; i++) {
     let subContain = document.createElement('div');
