@@ -31,6 +31,15 @@ let score = {
 scoreX.innerText = "X : " + score.X
 scoreY.innerText = "Y : " + score.Y
 
+document.getElementById('score-card').addEventListener('click',()=>{
+    localStorage.setItem('x-score',0)
+    localStorage.setItem('y-score',0)
+    score.X = 0
+    score.Y = 0
+    scoreX.innerText = "X : " + score.X
+    scoreY.innerText = "Y : " + score.Y
+})
+
 function displayWinner(wonPlayer){
     winnerCard.style.display = "flex";
     winner.style.display = "flex";
@@ -44,7 +53,7 @@ function displayWinner(wonPlayer){
 }
 
 let mode  = document.getElementById('player');
-mode.innerText = localStorage.getItem('mode')
+mode.innerText = localStorage.getItem('mode') ? localStorage.getItem('mode') : "Single Player"
 mode.onclick = () => {
     mode.innerText = mode.innerText == "Single Player" ? "Multi Player" : "Single Player";
     localStorage.setItem('mode',mode.innerText)
