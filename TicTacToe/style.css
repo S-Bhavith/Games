@@ -33,20 +33,12 @@ body{
     text-shadow: 0px 0px 10px white;
 }
 
-#player{
+#score-card{
+    display: flex;
+    gap:2.5rem;
     margin:1rem;
-    font-size:3vmin;
-    font-weight: bold;
-    border:none;
-    padding:2vmin;
-    border-radius:3vmin;
-    background-color: transparent;
-    color:white;
-    transition: background-color 250ms linear;
-}
-
-#player:hover,#player:focus{
-    background-color: orange;
+    font-size:x-large;
+    text-shadow: 0px 0px 5px white;
 }
 
 #game{
@@ -130,6 +122,21 @@ body{
     color:black;
     text-align: center;
     line-height: 25vmin;
+}
+
+#player{
+    margin-block: 0.25rem;
+    font-size:3vmin;
+    font-weight: bold;
+    border:1px solid black;
+    padding:2vmin;
+    border-radius:1vmin;
+    color:black;
+    transition: background-color 250ms linear;
+}
+
+#player:hover,#player:focus{
+    background-color: orange;
 }
 
 #reset{

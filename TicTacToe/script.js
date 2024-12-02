@@ -15,6 +15,21 @@ let winingPattern = [
 let winnerCard = document.getElementById('winner-card');
 let winner = document.getElementById('winner');
 let resetButton = document.getElementById('reset');
+const scoreX = document.getElementById('playerX');
+const scoreY = document.getElementById('playerY');
+
+if(!localStorage.getItem('x-score') || !localStorage.getItem('y-score')){
+    localStorage.setItem('x-score',parseInt(0))
+    localStorage.setItem('y-score',parseInt(0))
+}
+
+let score = {
+    X : localStorage.getItem('x-score'),
+    Y : localStorage.getItem('y-score')
+}
+
+scoreX.innerText = "X : " + score.X
+scoreY.innerText = "Y : " + score.Y
 
 function displayWinner(wonPlayer){
     winnerCard.style.display = "flex";
@@ -29,8 +44,10 @@ function displayWinner(wonPlayer){
 }
 
 let mode  = document.getElementById('player');
+mode.innerText = localStorage.getItem('mode')
 mode.onclick = () => {
     mode.innerText = mode.innerText == "Single Player" ? "Multi Player" : "Single Player";
+    localStorage.setItem('mode',mode.innerText)
 }
 
 function removeBox(index){
@@ -64,7 +81,7 @@ function checkWinner(){
         boxs[winingPattern[7][0]].classList.contains('X') && boxs[winingPattern[7][1]].classList.contains('X') && boxs[winingPattern[7][2]].classList.contains('X')
     ){
         displayWinner("X");
-        return true;
+        return "x";
     } else if(
         boxs[winingPattern[0][0]].classList.contains('O') && boxs[winingPattern[0][1]].classList.contains('O') && boxs[winingPattern[0][2]].classList.contains('O')
         ||
@@ -83,7 +100,7 @@ function checkWinner(){
         boxs[winingPattern[7][0]].classList.contains('O') && boxs[winingPattern[7][1]].classList.contains('O') && boxs[winingPattern[7][2]].classList.contains('O')
     ){
         displayWinner("O");
-        return true;
+        return "y";
     }
     else{
         return false;
@@ -105,8 +122,16 @@ boxs.forEach(box=>{
                     randomBoxSelector();
                 }
             }
-
+            
             let returnValue =  checkWinner();
+
+            if(returnValue == "x"){
+                score.X++
+                localStorage.setItem('x-score',score.X)
+            } else if(returnValue == "y") {
+                score.Y++
+                localStorage.setItem('y-score',score.Y)
+            }
             
             if(availableBox.length == 0 && !returnValue){
                 displayWinner("None");

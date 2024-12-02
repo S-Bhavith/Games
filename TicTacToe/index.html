@@ -10,7 +10,10 @@
 <body>
     <div id="container">
         <span id="logo">Tic Tac Toe</span>
-        <button id="player">Single Player</button>
+        <div id="score-card">
+            <span id="playerX"></span>
+            <span id="playerY"></span>
+        </div>
         <div id="game">
             <button class="box" id="0"></button>
             <button class="box" id="1"></button>
@@ -26,6 +29,7 @@
             <span id="winner">
                 Congratulations Player<br><br>
             </span>
+            <button id="player">Single Player</button>
             <button id="reset" onclick="window.location.reload()">Play Again</button>
         </p>
     </div>
