@@ -1,7 +1,5 @@
-### Projects
-
-Here i will post my ongoing and completed projects
-
+### Games
+  Simple Games using html, css and js
 ## 1) Tic Tac Toe Game
 
 This game has two mode
