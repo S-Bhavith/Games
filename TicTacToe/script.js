@@ -37,7 +37,7 @@ document.getElementById('score-card').addEventListener('click',()=>{
     score.X = 0
     score.Y = 0
     scoreX.innerText = "X : " + score.X
-    scoreY.innerText = "Y : " + score.Y
+    scoreY.innerText = "O : " + score.Y
 })
 
 function displayWinner(wonPlayer){
