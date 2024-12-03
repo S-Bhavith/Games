@@ -63,6 +63,7 @@ input{
     width: 10vmin;
     font-size:5vmin;
     text-align:center;
+    color:white;
 }
 
 input:focus{
