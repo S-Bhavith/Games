@@ -41,7 +41,8 @@ body{
 }
 
 #container{
-    border:1px solid white;
+    background-color:white;
+    border:1px solid black;
     height:91vmin;
     aspect-ratio:1/1;
     display:grid;
@@ -63,6 +64,7 @@ input{
     width: 10vmin;
     font-size:5vmin;
     text-align:center;
+    color:white;
 }
 
 input:focus{
