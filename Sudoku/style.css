@@ -7,7 +7,6 @@
 
 body{
     background-color:black;
-    color:white;
     display:flex;
     align-items:center;
     justify-content:space-evenly;
@@ -64,7 +63,7 @@ input{
     width: 10vmin;
     font-size:5vmin;
     text-align:center;
-    color:white;
+    color:black;
 }
 
 input:focus{
