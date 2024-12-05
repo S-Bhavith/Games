@@ -29,7 +29,7 @@ let score = {
 }
 
 scoreX.innerText = "X : " + score.X
-scoreY.innerText = "Y : " + score.Y
+scoreY.innerText = "O : " + score.Y
 
 document.getElementById('score-card').addEventListener('click',()=>{
     localStorage.setItem('x-score',0)
