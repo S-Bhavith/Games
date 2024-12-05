@@ -24,13 +24,13 @@ body{
 }
 
 .cover{
-    height:95vh;
-    width:95vw;
+    height:92vmin;
+    aspect-ratio: 1/1;
     background-color: rgba(255, 255, 255, .5);
     text-shadow: 0px 0px 25px green;
     color:black;
     font-weight:bolder;
-    font-size:10em;
+    font-size:10vmin;
 }
 
 .cover-fade-off{
@@ -40,7 +40,6 @@ body{
 }
 
 #container{
-    background-color:white;
     border:1px solid black;
     height:91vmin;
     aspect-ratio:1/1;
@@ -58,12 +57,13 @@ body{
 }
 
 input{
+    background-color: white;
+    color:black;
     cursor:pointer;
     height:10vmin;
     width: 10vmin;
     font-size:5vmin;
     text-align:center;
-    color:black;
 }
 
 input:focus{
