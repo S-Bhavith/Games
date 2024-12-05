@@ -127,10 +127,10 @@ body{
 
 #player{
     margin-block: 0.25rem;
-    font-size:3vmin;
+    font-size:large;
     font-weight: bold;
     border:1px solid black;
-    padding:2vmin;
+    padding:3vmin;
     border-radius:1vmin;
     color:black;
     transition: background-color 250ms linear;
