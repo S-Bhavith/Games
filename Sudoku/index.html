@@ -8,7 +8,31 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <div id="cover" class="cover">Sudoku</div>
-   <div id="container"></div>
+    <div id="cover" class="cover">
+        <header>
+            Sudoku
+        </header>
+
+        <div id="mode">
+            <ul>
+                <li>
+                    <button class="modes" id="easy" onclick="setGameMode(this.id)">
+                        Easy
+                    </button>
+                </li>
+                <li>
+                    <button class="modes" id="medium" onclick="setGameMode(this.id)">
+                        Medium
+                    </button>
+                </li>
+                <li>
+                    <button class="modes" id="hard" onclick="setGameMode(this.id)">
+                        Hard
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="container"></div>
 </body>
 </html>

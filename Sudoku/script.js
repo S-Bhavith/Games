@@ -1,17 +1,7 @@
 const container = document.getElementById('container');
 const subContainers = [];
 const emptyCells = []; // Array to store removed cell information
-
-document.addEventListener('DOMContentLoaded',()=>{
-    setTimeout(()=>{
-        Array.from(document.getElementsByClassName('cover'))[0].classList.add('cover-fade-off');
-        Array.from(document.getElementsByClassName('cover'))[0].classList.remove('cover');
-    },2000)
-    setTimeout(()=>{
-        document.body.removeChild(document.getElementById('cover'))
-    }
-    ,2500)
-})
+let isGameReady = false
 
 // Initialize 3x3 sub-containers
 for (let i = 0; i < 9; i++) {
@@ -112,7 +102,32 @@ function generateSudoku(numCellsToRemove = 3) {
             }
         });
     });
+
+    isGameReady = true
 }
 
 // Run the generation function when the page loads or refreshes
-generateSudoku();
+
+function setGameMode(diffLevel){
+    if(!isGameReady){
+        switch(diffLevel){
+            case 'easy':
+                generateSudoku(10)
+                break
+            case 'medium':
+                generateSudoku(20)
+                break
+            case 'hard':
+                generateSudoku(50)
+                break
+            default:
+                alert("Error in setting game mode")
+        }
+
+        setTimeout(
+            ()=>{
+                document.body.removeChild(document.getElementById('cover'))
+            },250
+        )
+    }
+}
