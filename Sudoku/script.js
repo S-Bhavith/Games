@@ -20,6 +20,7 @@ for (let i = 0; i < 9; i++) {
         let input = document.createElement('input');
         input.id = `${j + 1}-${i + 1}`;
         input.placeholder = `${j + 1}-${i + 1}`;
+        input.type="nummber"
         rows[i][j] = input;
         subContainers[Math.floor(i / 3) * 3 + Math.floor(j / 3)].appendChild(input);
     }

@@ -5,13 +5,8 @@
     box-sizing:border-box;
 }
 
-:root{
-    --bg-color:black;
-    --border-bg-color:white;
-}
-
 body{
-    background-color:var(--bg-color);
+    background-color:black;
     display:flex;
     align-items:center;
     justify-content:space-evenly;
@@ -27,7 +22,7 @@ body{
 }
 
 header{
-    backdrop-filter: blur(8px);
+    background-color: white;
     padding:1.5vmin;
     border: 1px solid black;
     border-radius:1vmin;
@@ -40,7 +35,7 @@ ul{
     display: flex;
     flex-direction: column;
     border-radius: .25rem;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(2.5rem);
     border: 1px solid black;
     gap:1rem;
 }
@@ -96,7 +91,7 @@ li{
 }
 
 #container{
-    border:1px solid var(--border-bg-color);
+    border:1px solid white;
     aspect-ratio:1/1;
     display:grid;
     grid-template-columns: repeat(3,1fr);
